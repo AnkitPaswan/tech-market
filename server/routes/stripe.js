@@ -78,7 +78,7 @@ router.post('/', async (req, res) => {
         mode: 'payment',
         shipping_address_collection: { allowed_countries: ["IN"] },
         success_url: "https://tech-market-0cds.onrender.com/successpage",
-        cancel_url: "https://tech-market-0cds.onrender.com//cancelpage",
+        cancel_url: "https://tech-market-0cds.onrender.com/cancelpage",
 
     });
     res.json({ id: session.id })
