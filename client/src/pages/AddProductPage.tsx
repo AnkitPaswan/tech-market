@@ -2,7 +2,8 @@ import { useState } from "react";
 
 const AddProductPage = () => {
   // Retrieve user data from localStorage
-  const user = typeof window !== "undefined" ? localStorage.getItem("user") : null;
+  const user =
+    typeof window !== "undefined" ? localStorage.getItem("user") : null;
   const userData = user ? JSON.parse(user) : null;
 
   const [title, setTitle] = useState("");
@@ -24,22 +25,25 @@ const AddProductPage = () => {
     setSuccessMessage("");
     setErrorMessage("");
     try {
-      const response = await fetch("http://localhost:8000/api/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: title,
-          desc: desc,
-          img: img,
-          price: Number(price),
-          categories: categories,
-          rating: Number(rating),
-          featured: featured,
-          inStock: true, // Assuming inStock is always true for new products
-        }),
-      });
+      const response = await fetch(
+        "https://tech-market-uuch.onrender.com/api/products",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: title,
+            desc: desc,
+            img: img,
+            price: Number(price),
+            categories: categories,
+            rating: Number(rating),
+            featured: featured,
+            inStock: true, // Assuming inStock is always true for new products
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to add product");

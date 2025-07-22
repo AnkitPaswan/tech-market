@@ -12,20 +12,25 @@ const CheckoutPage = () => {
     const createCheckoutSession = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8000/api/create-checkout-session", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ products: state.items.map(item => ({
-            id: item.product._id,
-            title: item.product.title,
-            desc: item.product.desc,
-            img: item.product.img,
-            price: item.product.price,
-            quantity: item.quantity,
-          })) }),
-        });
+        const response = await fetch(
+          "https://tech-market-uuch.onrender.com/api/create-checkout-session",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              products: state.items.map((item) => ({
+                id: item.product._id,
+                title: item.product.title,
+                desc: item.product.desc,
+                img: item.product.img,
+                price: item.product.price,
+                quantity: item.quantity,
+              })),
+            }),
+          }
+        );
         const data = await response.json();
         const stripe = await stripePromise;
         if (stripe) {
@@ -48,7 +53,6 @@ const CheckoutPage = () => {
     } else {
       createCheckoutSession();
     }
-    
   }, [state.items]);
 
   return (

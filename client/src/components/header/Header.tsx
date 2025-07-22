@@ -25,7 +25,7 @@ import Searchbar from "../../utils/Searchbar";
 const Header = () => {
   const user =
     typeof window !== "undefined" ? localStorage.getItem("user") : null;
-  const userData = user ? JSON.parse(user) : null;  
+  const userData = user ? JSON.parse(user) : null;
 
   const { totalItems, toggleCart } = useCart();
   const { isLoggedIn, logout } = useAuth();
@@ -46,7 +46,7 @@ const Header = () => {
     const getProducts = async () => {
       try {
         const res = await fetch(
-          `http://localhost:8000/api/products/search?q=${query}`
+          `https://tech-market-uuch.onrender.com/api/products/search?q=${query}`
         );
         if (!res.ok) {
           throw new Error("Failed to fetch products");
