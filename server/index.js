@@ -13,12 +13,16 @@ const orderRoute = require('./routes/order');
 const stripeRoute = require('./routes/stripe')
 const cors = require("cors");
 
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+const dotenv = require("dotenv");
 dotenv.config();
 
-// Connect to the database
-connectDB();
+const mongoose = require("mongoose");
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("DB connection successfull!"))
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.use(cors());
 app.use(express.json());
