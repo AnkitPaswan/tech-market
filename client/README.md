@@ -67,3 +67,5 @@ export default tseslint.config([
   },
 ])
 ```
+#frontend url- https://tech-market-flame.vercel.app/ or https://tech-market-0cds.onrender.com/
+#backend url- https://tech-market-uuch.onrender.com

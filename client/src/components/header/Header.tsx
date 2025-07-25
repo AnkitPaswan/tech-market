@@ -85,7 +85,7 @@ const Header = () => {
           <Link to="/" className="flex items-center">
             <div className="flex items-center space-x-2">
               <ShoppingBag className="h-8 w-8 text-blue-600" />
-              <span className="font-bold text-xl text-gray-900">
+              <span className="header font-bold text-xl text-gray-900">
                 TechMarket
               </span>
             </div>
